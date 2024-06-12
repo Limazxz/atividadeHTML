@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-url: url(../img/fundo2.jpg);
+  --text-color: #ffffff;
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(../img/Moon.svg);
+  --highlight-color: rgba(255, 255, 255, 0.3);
+}
+/* class para fazer a troca do modo escuro para o claro */
+
+.light {
+  --bg-url: url(../img/fundo4.jpg);
+  --text-color: #ffffff;
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --surface-color-hover: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(../img/Sun.svg);
+  --highlight-color: rgba(255, 255, 255, 0.3);
+}
+
+body {
+  background: var(--bg-url) no-repeat top center / cover;
+  height: 100vh;
+  color: white;
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+  width: 100%;
+  max-width: 588px;
+  margin: 56px auto 0px;
+  padding: 0px 24px;
+}
+
+#profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#profile img {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  border: 4px solid var(--stroke-color);
+  object-fit: cover;
+}
+
+#profile p {
+  margin-top: 8px;
+  font-weight: 500;
+  line-height: 24px;
+}
+#botao {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+#botao button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0;
+  background: #ffffff var(--switch-bg-url) no-repeat center;
+
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+
+  animation: slide-out 0.2s;
+}
+
+.light #botao button{
+  animation: slide-in 0.35s forwards
+}
+
+#botao button:hover {
+  outline: 8px solid var(--surface-color-hover);
+  transition: all 0.2s;
+}
+
+#botao span {
+  background: var(--surface-color);
+  display: block;
+  width: 54px;
+  height: 24px;
+  border: 1px solid var(--stroke-color);
+  border-radius: 24px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+#link ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+}
+
+#link ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  background: var(--surface-color);
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+#link ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1px solid var(--text-color);
+
+  transition: all 0.19s;
+}
+
+#redeSocial {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  gap: 16px;
+  font-size: 24px;
+}
+
+#redeSocial a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+#footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 24px;
+  color: #ffffff;
+}
+
+#footer a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 50%;
+  }
+}
